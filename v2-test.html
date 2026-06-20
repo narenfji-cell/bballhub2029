@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGMS 2029 Basketball Hub V2</title>
 
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#050505,#0f172a,#111827);
+color:white;
+min-height:100vh;
+}
+
+header{
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+header h1{
+font-size:2rem;
+}
+
+.hero{
+padding:40px 20px;
+text-align:center;
+}
+
+.hero h2{
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+.fire{
+color:#ff4d4d;
+}
+
+.ice{
+color:#6ec6ff;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.stat-card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+text-align:center;
+backdrop-filter:blur(10px);
+}
+
+.players{
+padding:20px;
+}
+
+.players h2{
+margin-bottom:20px;
+}
+
+.search{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.player-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.player-card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:20px;
+transition:.3s;
+}
+
+.player-card:hover{
+transform:translateY(-5px);
+}
+
+.ovr{
+font-size:2rem;
+font-weight:bold;
+color:gold;
+}
+
+.position{
+color:#9ca3af;
+}
+
+footer{
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🏀 UGMS 2029 Basketball Hub</h1>
+<p>Fire vs Ice Edition</p>
+</header>
+
+<section class="hero">
+<h2>
+<span class="fire">FIRE</span>
+vs
+<span class="ice">ICE</span>
+</h2>
+
+<p>
+Team Yaw leads the rivalry 2-0
+</p>
+</section>
+
+<section class="stats">
+
+<div class="stat-card">
+<h3>Players</h3>
+<h1>20</h1>
+</div>
+
+<div class="stat-card">
+<h3>Top Rated</h3>
+<h1>91</h1>
+</div>
+
+<div class="stat-card">
+<h3>Tallest</h3>
+<h1>201cm</h1>
+</div>
+
+<div class="stat-card">
+<h3>Rivalry Record</h3>
+<h1>2-0</h1>
+</div>
+
+</section>
+
+<section class="players">
+
+<h2>Player Database</h2>
+
+<input
+class="search"
+id="search"
+placeholder="Search player..."
+onkeyup="filterPlayers()"
+/>
+
+<div class="player-grid" id="playerGrid"></div>
+
+</section>
+
+<footer>
+UGMS 2029 Basketball Hub V2
+</footer>
+
+<script>
+
+const players = [
+
+{name:"Yaw",position:"SG",ovr:91},
+{name:"Chris",position:"SF",ovr:91},
+{name:"Appiadu",position:"C",ovr:89},
+{name:"Nana-Otu",position:"PG",ovr:88},
+{name:"Jason",position:"PF",ovr:88},
+{name:"Kwabena",position:"SF",ovr:85},
+{name:"Ryan",position:"PF",ovr:83},
+{name:"Tofa",position:"SG",ovr:82},
+{name:"Broni",position:"C",ovr:82},
+{name:"Emery",position:"C",ovr:80},
+{name:"Papa Nii",position:"SF",ovr:75},
+{name:"Jesse J",position:"SG",ovr:70},
+{name:"Saeed Osman",position:"SG",ovr:70},
+{name:"Dag",position:"SG",ovr:69},
+{name:"Reginald",position:"SF",ovr:67},
+{name:"Osei-Tutu",position:"C",ovr:63},
+{name:"Afoaks",position:"VID",ovr:60},
+{name:"Michael",position:"C",ovr:60},
+{name:"Justice",position:"C",ovr:60},
+{name:"Teju",position:"C",ovr:60}
+
+];
+
+function renderPlayers(list){
+
+let html="";
+
+list.forEach(player=>{
+
+html += `
+<div class="player-card">
+
+<div class="ovr">
+${player.ovr}
+</div>
+
+<h2>${player.name}</h2>
+
+<p class="position">
+${player.position}
+</p>
+
+</div>
+`;
+
+});
+
+document.getElementById("playerGrid").innerHTML = html;
+
+}
+
+function filterPlayers(){
+
+const search =
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+const filtered =
+players.filter(player =>
+player.name
+.toLowerCase()
+.includes(search)
+);
+
+renderPlayers(filtered);
+
+}
+
+renderPlayers(players);
+
+</script>
+
+</body>
+</html>
