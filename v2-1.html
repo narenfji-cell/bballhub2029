@@ -315,7 +315,35 @@ id="playerGrid">
 </div>
 
   </section>
-  
+  <section style="padding:20px">
+
+<h2>⚖️ Team Generator</h2>
+
+<br>
+
+<button
+onclick="generateTeams()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#ef4444;
+color:white;
+font-weight:bold;
+cursor:pointer;
+">
+Generate Balanced Teams
+</button>
+
+<br><br>
+
+<div id="teamOutput" class="card">
+
+Click the button to generate teams.
+
+</div>
+
+  </section>
   <footer>
 UGMS 2029 Basketball Hub V2.1
 </footer><script>
@@ -404,6 +432,48 @@ renderPlayers(filtered);
 }
 
 renderPlayers(players);
+function generateTeams(){
 
+let sorted =
+[...players]
+.sort((a,b)=>b.ovr-a.ovr);
+
+let teamA = [];
+let teamB = [];
+
+let scoreA = 0;
+let scoreB = 0;
+
+sorted.forEach(player=>{
+
+if(scoreA <= scoreB){
+
+teamA.push(player);
+scoreA += player.ovr;
+
+}else{
+
+teamB.push(player);
+scoreB += player.ovr;
+
+}
+
+});
+
+document.getElementById("teamOutput").innerHTML = `
+
+<h3>Team A (${scoreA})</h3>
+
+${teamA.map(p=>p.name).join("<br>")}
+
+<br><br>
+
+<h3>Team B (${scoreB})</h3>
+
+${teamB.map(p=>p.name).join("<br>")}
+
+`;
+
+}
 </script></body>
 </html>
