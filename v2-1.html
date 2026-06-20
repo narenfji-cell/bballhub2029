@@ -318,6 +318,41 @@ id="playerGrid">
   <section style="padding:20px">
 
 <h2>⚖️ Team Generator</h2>
+    <section style="padding:20px">
+
+<h2>➕ Add Player</h2>
+
+<br>
+
+<input id="newName" placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newPosition" placeholder="Position"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newHeight" placeholder="Height (cm)"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newWeight" placeholder="Weight (kg)"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newOVR" placeholder="OVR"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="addPlayer()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#10b981;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Add Player
+</button>
+
+    </section>
 
 <br>
 
@@ -432,7 +467,36 @@ renderPlayers(filtered);
 }
 
 renderPlayers(players);
-function generateTeams(){
+function generateTeams()
+function addPlayer(){
+
+const player = {
+
+name: document.getElementById("newName").value,
+
+position: document.getElementById("newPosition").value,
+
+height: Number(
+document.getElementById("newHeight").value
+),
+
+weight: Number(
+document.getElementById("newWeight").value
+),
+
+ovr: Number(
+document.getElementById("newOVR").value
+)
+
+};
+
+players.push(player);
+
+renderPlayers(players);
+
+alert("Player Added!");
+
+}{
 
 let sorted =
 [...players]
