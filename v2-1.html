@@ -513,6 +513,35 @@ ${player.ovr}
 ${tier(player.ovr)}
 </p>
 
+<div style="margin-top:12px">
+
+<button
+onclick="quickEdit('${player.name}')"
+style="
+padding:8px 12px;
+border:none;
+border-radius:8px;
+margin-right:8px;
+cursor:pointer;
+font-weight:bold;
+">
+✏️ Edit
+</button>
+
+<button
+onclick="quickDelete('${player.name}')"
+style="
+padding:8px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+">
+🗑 Delete
+</button>
+
+</div>
+
 </div>
 
 `;
@@ -689,6 +718,62 @@ renderPlayers(players);
 
 alert("Player Deleted");
 
+}function quickDelete(playerName){
+
+const index =
+players.findIndex(
+p => p.name === playerName
+);
+
+if(index === -1){
+return;
 }
+
+if(!confirm(
+"Delete " + playerName + "?"
+)){
+return;
+}
+
+players.splice(index,1);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+}
+
+function quickEdit(playerName){
+
+const newOVR = prompt(
+"Enter new OVR for " + playerName
+);
+
+if(!newOVR){
+return;
+}
+
+const player =
+players.find(
+p => p.name === playerName
+);
+
+if(!player){
+return;
+}
+
+player.ovr = Number(newOVR);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+  }
 </script></body>
 </html>
