@@ -775,7 +775,8 @@ let html="";
 list.forEach(player=>{
 
 html+=`
-<div class="flip-card">
+<div class="flip-card"
+onclick="this.classList.toggle('flipped')">
 
 <div class="flip-inner">
 <div class="player-card flip-front ${tier(player.ovr).toLowerCase()}">
