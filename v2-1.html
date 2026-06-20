@@ -109,65 +109,82 @@ gap:20px;
 }
 
 .player-card{
+  position:relative;
+  overflow:hidden;
 
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.03)
-);
+  background:
+  linear-gradient(
+    135deg,
+    rgba(18,31,58,.95),
+    rgba(9,15,28,.95)
+  );
 
-padding:20px;
+  border-radius:24px;
 
-border-radius:20px;
+  padding:24px;
 
-border:
-1px solid rgba(255,255,255,.12);
+  min-height:240px;
 
-transition:.3s;
+  border:1px solid rgba(255,255,255,.1);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.35);
+
+  transition:.3s;
+}
+.player-card:hover{
+
+transform:translateY(-6px);
 
 box-shadow:
-0 10px 25px rgba(0,0,0,.25);
+0 25px 45px rgba(0,0,0,.45);
 
-}.diamond{
-border:2px solid #60a5fa;
-box-shadow:0 0 25px rgba(96,165,250,.8);
+  }.diamond{
+
+border:2px solid #58d8ff;
+
+box-shadow:
+0 0 25px rgba(88,216,255,.5);
+
 }
 
 .platinum{
-border:2px solid #c084fc;
-box-shadow:0 0 25px rgba(192,132,252,.8);
+
+border:2px solid #c46fff;
+
+box-shadow:
+0 0 25px rgba(196,111,255,.5);
+
 }
 
 .gold{
-border:2px solid #facc15;
-box-shadow:0 0 25px rgba(250,204,21,.8);
+
+border:2px solid #ffd700;
+
+box-shadow:
+0 0 25px rgba(255,215,0,.4);
+
 }
 
 .silver{
-border:2px solid #d1d5db;
-box-shadow:0 0 20px rgba(209,213,219,.7);
-}
 
-.bronze{
-border:2px solid #b45309;
-box-shadow:0 0 20px rgba(180,83,9,.7);
-}
-
-.player-card:hover{
-
-transform:
-translateY(-5px);
+border:2px solid #c8c8c8;
 
 box-shadow:
-0 15px 35px rgba(0,0,0,.45);
+0 0 20px rgba(200,200,200,.3);
 
-}
+  }
 
 .ovr{
-font-size:2rem;
-font-weight:bold;
-color:gold;
+
+font-size:64px;
+
+font-weight:900;
+
+line-height:1;
+
+margin-bottom:10px;
+
 }
 
 .tier{
