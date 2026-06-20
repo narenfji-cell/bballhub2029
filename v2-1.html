@@ -218,6 +218,18 @@ backface-visibility:hidden;
 
 transform:rotateY(180deg);
 
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
 }
 
 .ovr{
@@ -788,36 +800,35 @@ ${tier(player.ovr)}
 
 <div class="player-card flip-back">
 
+<div class="ovr">
+${player.ovr}
+</div>
+
 <h2>${player.name}</h2>
 
-<p>${player.position}</p>
+<p>
+🏀 ${player.position}
+</p>
 
 <br>
 
-<p>🏃 Speed: ${player.speed || 80}</p>
-
-<p>🎯 Shooting: ${player.shooting || 80}</p>
-
-<p>🧠 IQ: ${player.iq || 80}</p>
-
-<p>🛡 Defense: ${player.defense || 80}</p>
-
-</div> <!-- closes flip-back -->
-
-</div> <!-- closes flip-inner -->
-
-</div> <!-- closes flip-card -->
-
-<h2>${player.name}</h2>
-
-<p>${player.position}</p>
-
-<p>📏 ${player.height} cm</p>
-
-<p>⚖️ ${player.weight} kg</p>
-
-<p class="tier">
+<div class="tier-badge">
 ${tier(player.ovr)}
+</div>
+
+<br><br>
+
+<p>⚡ Speed .......... ${player.speed || 80}</p>
+
+<p>🎯 Shooting ...... ${player.shooting || 80}</p>
+
+<p>🧠 IQ ................. ${player.iq || 80}</p>
+
+<p>🛡 Defense ........ ${player.defense || 80}</p>
+<br>
+
+<p>
+Tap again to return
 </p>
 
 <div style="margin-top:12px">
