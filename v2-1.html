@@ -347,6 +347,30 @@ cursor:pointer;">
 Update Rating
 </button>
 
+    </section><section style="padding:20px">
+
+<h2>🗑 Delete Player</h2>
+
+<br>
+
+<input
+id="deleteName"
+placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="deletePlayer()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#dc2626;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Delete Player
+</button>
+
     </section>
     <section style="padding:20px">
 
@@ -612,6 +636,35 @@ renderPlayers(players);
 
 alert("Rating Updated");
 
-  }
+  }function deletePlayer(){
+
+const playerName =
+document.getElementById("deleteName").value;
+
+const index =
+players.findIndex(
+p => p.name.toLowerCase() === playerName.toLowerCase()
+);
+
+if(index === -1){
+
+alert("Player not found");
+
+return;
+
+}
+
+players.splice(index,1);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Player Deleted");
+
+}
 </script></body>
 </html>
