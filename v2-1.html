@@ -229,6 +229,24 @@ font-weight:700;
 
 background:rgba(255,255,255,.12);
 
+}.position-watermark{
+
+position:absolute;
+
+right:10px;
+
+top:10px;
+
+font-size:100px;
+
+font-weight:900;
+
+opacity:.05;
+
+pointer-events:none;
+
+line-height:1;
+
 }
 
 .tier{
@@ -702,6 +720,9 @@ list.forEach(player=>{
 html+=`
 
 <div class="player-card ${tier(player.ovr).toLowerCase()}">
+<div class="position-watermark">
+${player.position}
+</div>
 
 <div class="ovr">
 ${player.ovr}
