@@ -454,6 +454,54 @@ Click the button to generate teams.
 
 </div>
 
+  </section><section style="padding:20px">
+
+<h2>📊 Player Comparison</h2>
+
+<br>
+
+<input
+id="comparePlayer1"
+placeholder="First Player"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<input
+id="comparePlayer2"
+placeholder="Second Player"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<button
+onclick="comparePlayers()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+">
+Compare Players
+</button>
+
+<br><br>
+
+<div id="comparisonResult" class="card">
+
+Choose two players to compare.
+
+</div>
+
   </section>
   <footer>
 UGMS 2029 Basketball Hub V2.1
@@ -773,6 +821,83 @@ JSON.stringify(players)
 );
 
 renderPlayers(players);
+
+  }function comparePlayers(){
+
+const player1 =
+players.find(
+p =>
+p.name.toLowerCase() ===
+document.getElementById("comparePlayer1")
+.value
+.toLowerCase()
+);
+
+const player2 =
+players.find(
+p =>
+p.name.toLowerCase() ===
+document.getElementById("comparePlayer2")
+.value
+.toLowerCase()
+);
+
+if(!player1 || !player2){
+
+alert("Player not found");
+
+return;
+
+}
+
+document.getElementById(
+"comparisonResult"
+).innerHTML = `
+
+<h3>
+${player1.name}
+vs
+${player2.name}
+</h3>
+
+<hr>
+
+<p>
+OVR:
+${player1.ovr}
+vs
+${player2.ovr}
+</p>
+
+<p>
+Height:
+${player1.height} cm
+vs
+${player2.height} cm
+</p>
+
+<p>
+Weight:
+${player1.weight} kg
+vs
+${player2.weight} kg
+</p>
+
+<p>
+Position:
+${player1.position}
+vs
+${player2.position}
+</p>
+
+<p>
+Tier:
+${tier(player1.ovr)}
+vs
+${tier(player2.ovr)}
+</p>
+
+`;
 
   }
 </script></body>
