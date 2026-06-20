@@ -439,7 +439,10 @@ ${tier(player.ovr)}
 
 `;
 
-});
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);});
 
 document.getElementById("playerGrid").innerHTML=html;
 
@@ -470,8 +473,9 @@ renderPlayers(players);
 function generateTeams()
 function addPlayer(){
 
-const player = {
-
+let players = JSON.parse(
+localStorage.getItem("ugmsPlayers")
+) || [
 name: document.getElementById("newName").value,
 
 position: document.getElementById("newPosition").value,
@@ -492,10 +496,14 @@ document.getElementById("newOVR").value
 
 players.push(player);
 
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
 renderPlayers(players);
 
 alert("Player Added!");
-
 }{
 
 let sorted =
