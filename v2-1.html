@@ -502,6 +502,76 @@ Choose two players to compare.
 
 </div>
 
+  </section><section style="padding:20px">
+
+<h2>🏆 Tournament Archive</h2>
+
+<br>
+
+<input
+id="tournamentName"
+placeholder="Tournament Name"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<input
+id="tournamentChampion"
+placeholder="Champion"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<input
+id="tournamentMVP"
+placeholder="MVP"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<input
+id="tournamentScore"
+placeholder="Final Score"
+style="
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+">
+
+<button
+onclick="addTournament()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+">
+Add Tournament
+</button>
+
+<br><br>
+
+<div id="tournamentArchive" class="card">
+
+No tournaments added yet.
+
+</div>
+
   </section>
   <footer>
 UGMS 2029 Basketball Hub V2.1
@@ -899,6 +969,88 @@ ${tier(player2.ovr)}
 
 `;
 
-  }
+  }let tournaments =
+JSON.parse(
+localStorage.getItem("ugmsTournaments")
+) || [];
+
+function addTournament(){
+
+const tournament = {
+
+name:
+document.getElementById("tournamentName").value,
+
+champion:
+document.getElementById("tournamentChampion").value,
+
+mvp:
+document.getElementById("tournamentMVP").value,
+
+score:
+document.getElementById("tournamentScore").value
+
+};
+
+tournaments.push(tournament);
+
+localStorage.setItem(
+"ugmsTournaments",
+JSON.stringify(tournaments)
+);
+
+renderTournaments();
+
+}
+
+function renderTournaments(){
+
+let html = "";
+
+tournaments.forEach(t=>{
+
+html += `
+
+<div style="
+padding:15px;
+margin-bottom:10px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:10px;
+">
+
+<h3>${t.name}</h3>
+
+<p>
+🏆 Champion:
+${t.champion}
+</p>
+
+<p>
+⭐ MVP:
+${t.mvp}
+</p>
+
+<p>
+📊 Score:
+${t.score}
+</p>
+
+</div>
+
+`;
+
+});
+
+if(html===""){
+html="No tournaments added yet.";
+}
+
+document.getElementById(
+"tournamentArchive"
+).innerHTML = html;
+
+}
+
+renderTournaments();
 </script></body>
 </html>
