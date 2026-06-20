@@ -1,0 +1,694 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGMS 2029 Basketball Hub V2.1</title><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:
+linear-gradient(
+135deg,
+#030712,
+#0f172a,
+#111827
+);
+color:white;
+min-height:100vh;
+}
+
+nav{
+position:sticky;
+top:0;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+font-weight:bold;
+font-size:1.1rem;
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.fire{
+color:#ef4444;
+}
+
+.ice{
+color:#60a5fa;
+}
+
+.hero p{
+opacity:.8;
+margin-top:10px;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:
+rgba(255,255,255,.05);
+
+padding:20px;
+
+border-radius:20px;
+
+backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+.card h1{
+margin-top:10px;
+}
+
+.players{
+padding:20px;
+}
+
+.search{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.player-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.player-card{
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.03)
+);
+
+padding:20px;
+
+border-radius:20px;
+
+border:
+1px solid rgba(255,255,255,.12);
+
+transition:.3s;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
+
+}.diamond{
+border:2px solid #60a5fa;
+box-shadow:0 0 25px rgba(96,165,250,.8);
+}
+
+.platinum{
+border:2px solid #c084fc;
+box-shadow:0 0 25px rgba(192,132,252,.8);
+}
+
+.gold{
+border:2px solid #facc15;
+box-shadow:0 0 25px rgba(250,204,21,.8);
+}
+
+.silver{
+border:2px solid #d1d5db;
+box-shadow:0 0 20px rgba(209,213,219,.7);
+}
+
+.bronze{
+border:2px solid #b45309;
+box-shadow:0 0 20px rgba(180,83,9,.7);
+}
+
+.player-card:hover{
+
+transform:
+translateY(-5px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.45);
+
+}
+
+.ovr{
+font-size:2rem;
+font-weight:bold;
+color:gold;
+}
+
+.tier{
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:.7;
+}
+
+</style></head><body><nav><div class="logo">
+🏀 UGMS 2029 Hub
+</div><div>
+Fire vs Ice
+</div></nav><section class="hero"><h1>
+UGMS 2029
+<br>
+Basketball Hub
+</h1><h2>
+<span class="fire">🔥 FIRE</span>
+vs
+<span class="ice">❄️ ICE</span>
+</h2><p>
+Player Database • Awards • Legacy • Scouting Reports
+</p></section><section class="dashboard"><div class="card">
+<h3>Total Players</h3>
+<h1>20</h1>
+</div><div class="card">
+<h3>Top OVR</h3>
+<h1>91</h1>
+</div><div class="card">
+<h3>Tallest</h3>
+<h1>201cm</h1>
+</div><div class="card">
+<h3>Rivalry</h3>
+<h1>2-0</h1>
+</div></section><section class="players"><h2>Player Database</h2><br><input
+class="search"
+id="search"
+placeholder="Search player..."
+onkeyup="filterPlayers()">
+
+<div
+class="player-grid"
+id="playerGrid">
+</div></section>
+  <section style="padding:20px">
+
+<h2>🏆 Awards</h2>
+
+<br>
+
+<div class="card">
+
+<h3>Class MVP</h3>
+
+<p>Yaw & Chris</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>MOMIC MVP</h3>
+
+<p>Yaw</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Hardest Worker</h3>
+
+<p>Chris</p>
+
+</div>
+
+  </section>
+  <section style="padding:20px">
+
+<h2>🔥 Fire vs Ice History</h2>
+
+<br>
+
+<div class="card">
+
+<h3>Edition I</h3>
+
+<h1>45 - 21</h1>
+
+<p>Team Yaw Victory</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Edition II</h3>
+
+<h1>48 - 47</h1>
+
+<p>Team Yaw Victory</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Overall Record</h3>
+
+<h1>2 - 0</h1>
+
+<p>Fire Leads</p>
+
+</div>
+
+  </section>
+  <section style="padding:20px">
+
+<h2>👑 Hall of Fame</h2>
+
+<br>
+
+<div class="card">
+
+<h3>Tier 1 Legends</h3>
+
+<p>🏀 Yaw</p>
+
+<p>🏀 Chris</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Elite Core</h3>
+
+<p>🏀 Nana-Otu</p>
+
+<p>🏀 Appiadu</p>
+
+<p>🏀 Jason</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Future Hall Candidates</h3>
+
+<p>🏀 Ryan</p>
+
+<p>🏀 Kwabena</p>
+
+<p>🏀 Broni</p>
+
+</div>
+
+  </section>
+  <section style="padding:20px">
+
+<h2>⚖️ Team Generator</h2>
+    <section style="padding:20px">
+
+<h2>✏️ Edit Player Rating</h2>
+
+<br>
+
+<input
+id="editName"
+placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input
+id="editOVR"
+placeholder="New OVR"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="updatePlayerOVR()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#f59e0b;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Update Rating
+</button>
+
+    </section><section style="padding:20px">
+
+<h2>🗑 Delete Player</h2>
+
+<br>
+
+<input
+id="deleteName"
+placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="deletePlayer()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#dc2626;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Delete Player
+</button>
+
+    </section>
+    <section style="padding:20px">
+
+<h2>➕ Add Player</h2>
+
+<br>
+
+<input id="newName" placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newPosition" placeholder="Position"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newHeight" placeholder="Height (cm)"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newWeight" placeholder="Weight (kg)"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input id="newOVR" placeholder="OVR"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="addPlayer()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#10b981;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Add Player
+</button>
+
+    </section>
+
+<br>
+
+<button
+onclick="generateTeams()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#ef4444;
+color:white;
+font-weight:bold;
+cursor:pointer;
+">
+Generate Balanced Teams
+</button>
+
+<br><br>
+
+<div id="teamOutput" class="card">
+
+Click the button to generate teams.
+
+</div>
+
+  </section>
+  <footer>
+UGMS 2029 Basketball Hub V2.1
+</footer><script>
+
+let players = JSON.parse(
+localStorage.getItem("ugmsPlayers")
+) || [
+
+{name:"Yaw",position:"SG",height:185,weight:77,ovr:91},
+
+{name:"Chris",position:"SF",height:188,weight:71,ovr:91},
+
+{name:"Nana-Otu",position:"PG",height:174,weight:62,ovr:88},
+
+{name:"Appiadu",position:"C",height:183.5,weight:82,ovr:89},
+
+{name:"Jason",position:"PF",height:177,weight:70,ovr:88}
+
+];
+
+function tier(ovr){
+
+if(ovr>=90)return "💎 Diamond";
+
+if(ovr>=85)return "🟣 Platinum";
+
+if(ovr>=80)return "🟡 Gold";
+
+return "⚪ Silver";
+
+}
+
+function renderPlayers(list){
+
+let html="";
+
+list.forEach(player=>{
+
+html+=`
+
+<div class="player-card ${tier(player.ovr).toLowerCase()}">
+
+<div class="ovr">
+${player.ovr}
+</div>
+
+<h2>${player.name}</h2>
+
+<p>${player.position}</p>
+
+<p>📏 ${player.height} cm</p>
+
+<p>⚖️ ${player.weight} kg</p>
+
+<p class="tier">
+${tier(player.ovr)}
+</p>
+
+</div>
+
+`;
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);});
+
+document.getElementById("playerGrid").innerHTML=html;
+
+}
+
+function filterPlayers(){
+
+const search=
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+const filtered=
+players.filter(p=>
+
+p.name
+.toLowerCase()
+.includes(search)
+
+);
+
+renderPlayers(filtered);
+
+}
+
+renderPlayers(players);
+
+function generateTeams(){
+
+let sorted =
+[...players]
+.sort((a,b)=>b.ovr-a.ovr);
+
+let teamA = [];
+let teamB = [];
+
+let scoreA = 0;
+let scoreB = 0;
+
+sorted.forEach(player=>{
+
+if(scoreA <= scoreB){
+
+teamA.push(player);
+scoreA += player.ovr;
+
+}else{
+
+teamB.push(player);
+scoreB += player.ovr;
+
+}
+
+});
+
+document.getElementById("teamOutput").innerHTML = `
+
+<h3>Team A (${scoreA})</h3>
+
+${teamA.map(p=>p.name).join("<br>")}
+
+<br><br>
+
+<h3>Team B (${scoreB})</h3>
+
+${teamB.map(p=>p.name).join("<br>")}
+
+`;
+
+}
+
+function addPlayer(){
+
+const player = {
+
+name: document.getElementById("newName").value,
+
+position: document.getElementById("newPosition").value,
+
+height: Number(
+document.getElementById("newHeight").value
+),
+
+weight: Number(
+document.getElementById("newWeight").value
+),
+
+ovr: Number(
+document.getElementById("newOVR").value
+)
+
+};
+
+players.push(player);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Player Added!");
+
+}function updatePlayerOVR(){
+
+const playerName =
+document.getElementById("editName").value;
+
+const newOVR =
+Number(
+document.getElementById("editOVR").value
+);
+
+const player =
+players.find(
+p => p.name.toLowerCase() === playerName.toLowerCase()
+);
+
+if(!player){
+
+alert("Player not found");
+
+return;
+
+}
+
+player.ovr = newOVR;
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Rating Updated");
+
+  }function deletePlayer(){
+
+const playerName =
+document.getElementById("deleteName").value;
+
+const index =
+players.findIndex(
+p => p.name.toLowerCase() === playerName.toLowerCase()
+);
+
+if(index === -1){
+
+alert("Player not found");
+
+return;
+
+}
+
+players.splice(index,1);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Player Deleted");
+
+}
+</script></body>
+  </html>
