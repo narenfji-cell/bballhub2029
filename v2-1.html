@@ -470,41 +470,7 @@ renderPlayers(filtered);
 }
 
 renderPlayers(players);
-function generateTeams()
-function addPlayer(){
-
-let players = JSON.parse(
-localStorage.getItem("ugmsPlayers")
-) || [
-name: document.getElementById("newName").value,
-
-position: document.getElementById("newPosition").value,
-
-height: Number(
-document.getElementById("newHeight").value
-),
-
-weight: Number(
-document.getElementById("newWeight").value
-),
-
-ovr: Number(
-document.getElementById("newOVR").value
-)
-
-};
-
-players.push(player);
-
-localStorage.setItem(
-"ugmsPlayers",
-JSON.stringify(players)
-);
-
-renderPlayers(players);
-
-alert("Player Added!");
-}{
+function generateTeams(){
 
 let sorted =
 [...players]
@@ -515,9 +481,6 @@ let teamB = [];
 
 let scoreA = 0;
 let scoreB = 0;
-
-sorted.forEach(player=>{
-
 if(scoreA <= scoreB){
 
 teamA.push(player);
@@ -546,6 +509,39 @@ ${teamB.map(p=>p.name).join("<br>")}
 
 `;
 
-}
+}function addPlayer(){
+
+const player = {
+
+name: document.getElementById("newName").value,
+
+position: document.getElementById("newPosition").value,
+
+height: Number(
+document.getElementById("newHeight").value
+),
+
+weight: Number(
+document.getElementById("newWeight").value
+),
+
+ovr: Number(
+document.getElementById("newOVR").value
+)
+
+};
+
+players.push(player);
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Player Added!");
+
+  }
 </script></body>
 </html>
