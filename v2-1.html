@@ -1237,5 +1237,17 @@ document.getElementById(
 }
 
 renderTournaments();
+document.addEventListener("click",e=>{
+
+const card =
+e.target.closest(".flip-card");
+
+if(card){
+
+card.classList.toggle("flipped");
+
+}
+
+});
 </script></body>
 </html>
