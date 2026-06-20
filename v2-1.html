@@ -437,7 +437,9 @@ Click the button to generate teams.
 UGMS 2029 Basketball Hub V2.1
 </footer><script>
 
-const players = [
+let players = JSON.parse(
+localStorage.getItem("ugmsPlayers")
+) || [
 
 {name:"Yaw",position:"SG",height:185,weight:77,ovr:91},
 
