@@ -470,6 +470,7 @@ renderPlayers(filtered);
 }
 
 renderPlayers(players);
+
 function generateTeams(){
 
 let sorted =
@@ -481,6 +482,9 @@ let teamB = [];
 
 let scoreA = 0;
 let scoreB = 0;
+
+sorted.forEach(player=>{
+
 if(scoreA <= scoreB){
 
 teamA.push(player);
@@ -509,7 +513,9 @@ ${teamB.map(p=>p.name).join("<br>")}
 
 `;
 
-}function addPlayer(){
+}
+
+function addPlayer(){
 
 const player = {
 
@@ -542,6 +548,6 @@ renderPlayers(players);
 
 alert("Player Added!");
 
-  }
+}
 </script></body>
 </html>
