@@ -205,6 +205,30 @@ backdrop-filter:blur(8px);
 
 margin-bottom:10px;
 
+}.card-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:12px;
+
+}
+
+.tier-mini{
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:.75rem;
+
+font-weight:700;
+
+background:rgba(255,255,255,.12);
+
 }
 
 .tier{
@@ -681,8 +705,16 @@ html+=`
 
 <div class="ovr">
 ${player.ovr}
-</div><div class="position-badge">
+</div><div class="card-header">
+
+<div class="position-badge">
 ${player.position}
+</div>
+
+<div class="tier-mini">
+${tier(player.ovr)}
+</div>
+
 </div>
 
 <h2>${player.name}</h2>
