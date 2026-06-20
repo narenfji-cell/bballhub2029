@@ -109,15 +109,37 @@ gap:20px;
 }
 
 .player-card{
+.player-card{
+
 background:
-rgba(255,255,255,.05);
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.03)
+);
 
 padding:20px;
 
 border-radius:20px;
 
 border:
-1px solid rgba(255,255,255,.08);
+1px solid rgba(255,255,255,.12);
+
+transition:.3s;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.player-card:hover{
+
+transform:
+translateY(-5px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.45);
+
 }
 
 .ovr{
