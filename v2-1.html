@@ -320,6 +320,36 @@ id="playerGrid">
 <h2>⚖️ Team Generator</h2>
     <section style="padding:20px">
 
+<h2>✏️ Edit Player Rating</h2>
+
+<br>
+
+<input
+id="editName"
+placeholder="Player Name"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<input
+id="editOVR"
+placeholder="New OVR"
+style="width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:none;">
+
+<button
+onclick="updatePlayerOVR()"
+style="
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#f59e0b;
+color:white;
+font-weight:bold;
+cursor:pointer;">
+Update Rating
+</button>
+
+    </section>
+    <section style="padding:20px">
+
 <h2>➕ Add Player</h2>
 
 <br>
@@ -548,6 +578,40 @@ renderPlayers(players);
 
 alert("Player Added!");
 
+}function updatePlayerOVR(){
+
+const playerName =
+document.getElementById("editName").value;
+
+const newOVR =
+Number(
+document.getElementById("editOVR").value
+);
+
+const player =
+players.find(
+p => p.name.toLowerCase() === playerName.toLowerCase()
+);
+
+if(!player){
+
+alert("Player not found");
+
+return;
+
 }
+
+player.ovr = newOVR;
+
+localStorage.setItem(
+"ugmsPlayers",
+JSON.stringify(players)
+);
+
+renderPlayers(players);
+
+alert("Rating Updated");
+
+  }
 </script></body>
 </html>
