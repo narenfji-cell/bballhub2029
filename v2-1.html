@@ -776,7 +776,6 @@ html+=`
 <div class="flip-card">
 
 <div class="flip-inner">
-
 <div class="player-card flip-front ${tier(player.ovr).toLowerCase()}">
 <div class="position-watermark">
 ${player.position}
@@ -792,7 +791,11 @@ ${player.position}
 
 <div class="tier-mini">
 ${tier(player.ovr)}
-</div><h2>${player.name}</h2>
+</div>
+
+</div> <!-- closes card-header -->
+
+<h2>${player.name}</h2>
 
 <p>📏 ${player.height} cm</p>
 
